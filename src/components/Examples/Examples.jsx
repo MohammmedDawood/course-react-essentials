@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { EXAMPLES } from "../../data";
-import TabButton from "../TabButton";
+import TabButton from "../TabButton/TabButton";
 
 function Examples() {
   const [selectedTab, setSelectedTab] = useState();
