@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EXAMPLES } from "../../data";
 import TabButton from "../TabButton/TabButton";
 import Section from "../Section/Section";
+import Tabs from "../Tabs/Tabs";
 
 function Examples() {
   const [selectedTab, setSelectedTab] = useState();
@@ -25,33 +26,39 @@ function Examples() {
 
   return (
     <Section id='examples' title={Examples}>
-      <menu>
-        <TabButton
-          isSelected={selectedTab === "components"}
-          onClick={() => handleSelect("components")}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          isSelected={selectedTab === "jsx"}
-          onClick={() => handleSelect("jsx")}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelected={selectedTab === "props"}
-          onClick={() => handleSelect("props")}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelected={selectedTab === "state"}
-          onClick={() => handleSelect("state")}
-        >
-          State
-        </TabButton>
-      </menu>
-      {tabContent}
+      <Tabs
+        ButtonContainer='menu'
+        buttons={
+          <>
+            <TabButton
+              isSelected={selectedTab === "components"}
+              onClick={() => handleSelect("components")}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selectedTab === "jsx"}
+              onClick={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTab === "props"}
+              onClick={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTab === "state"}
+              onClick={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
     </Section>
   );
 }
